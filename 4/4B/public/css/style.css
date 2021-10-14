@@ -8,8 +8,24 @@
     src: url('../font/Mont-Heavy.otf');
 }
 
+:root {
+    --border-trendy: 10px
+}
+
 body {
     font-family: 'Mont-bold', Arial, Helvetica, sans-serif;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
 }
 
 .container {
@@ -42,3 +58,24 @@ body {
     display: block;
 }
 /* close */
+
+/* button */
+.btn {
+    border-radius: var(--border-trendy);
+    font-weight: bold;
+}
+
+.btn a { 
+    display: block;
+    padding: 8px 20px 
+}
+
+.btn-success { background-color: rgb(35, 161, 88) }
+.btn-success a, .btn-delete a, .btn-update a { color: rgb(240, 240, 240); }
+
+.btn-update { background-color: rgb(52, 190, 110) }
+.btn-delete { background-color: rgb(180, 50, 50) }
+
+.btn-add {
+    background-color: aquamarine;
+}
