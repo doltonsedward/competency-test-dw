@@ -1,0 +1,59 @@
+{{> header}}
+
+<div class="container">
+    {{> sidebar}}
+  
+    <div class="in-container__right">
+      <div class="heading-container d-flex-responsif">
+        <form action="/movies/search" class="search-input" method="GET">
+          <i class="fas fa-search"></i>
+          <input type="search" name="searchInput" placeholder="Type to search">
+        </form>
+        <div class="account-detail d-flex align-center">
+          {{#if isLogin}}
+            <i class="fas fa-bell"></i>
+            <i class="fas fa-message"></i>
+            <div class="account d-flex align-center">
+              <img class="profile_account" src="/static/img/profile1.jpg" alt="profile account">
+              <div class="about_account">
+                <p class="title_of_about-account">{{user.name}}</p>
+                <p class="subtitle">Dancer</p>
+              </div>
+            </div>
+          {{else}}
+            <a class="btn btn-primary" href="/register">Sign up</a>
+          {{/if}}
+        </div>
+      </div>
+      <div class="main">
+          {{#if isLogin}}
+            <form action="/movies/setting" method="POST" class="form-ticket">
+              <h2 class="text-center">Setting</h2>
+              <label>
+                <input type="text" name="userId" value="{{user.id}}" placeholder="your name.." hidden>
+                <p>Your name</p>
+                <input type="text" name="userName" value="{{user.name}}" placeholder="your name..">
+              </label>
+              <br>
+              <button type="submit" class="btn btn-submit">Update</button>
+            </form>
+          {{else}}
+            <p class="text-center">You are not <a href="/login" class="color-primary">Login</a></p>
+            <br>
+            <p class="text-center">
+                <img src="/static/img/not-login.png" alt="Image not login" class="text-center img-not-login">
+            </p>
+          {{/if}}
+      </div>
+    </div>
+
+    <button class="btn-nav" onclick="openNav()">Nav</button>
+</div>
+
+</div>
+
+
+
+<script src="/static/js/scMovie.js"></script>
+
+{{> footer}}

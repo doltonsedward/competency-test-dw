@@ -1,0 +1,149 @@
+/*
+/-----------------------------------------\
+|  Copyright 2020 - 2021 Doltons Edward   |
+|  Name: d-style                          |
+|  Version: v.0.9                         |
+|                                         |
+|  * Made In Indonesia                    |
+\-----------------------------------------/
+
+  style responsive pesaing bootstrap untuk proyek dengan kerja manual, 
+  ini dibuat karena saya peduli css
+
+  translate - English :
+  responsive style bootstrap competitor for manual projects, 
+  this is made because I care about css
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+}
+
+body { overflow-x: hidden }
+button { border: none;cursor: pointer }
+li { list-style-type: none }
+a {
+    text-decoration: none;
+    color: black
+}
+
+:focus { outline: none }
+
+
+/* responsif style */
+
+.row::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+
+/* for user hp */
+
+[class*="col-"] { width: 50% }
+
+.full { width: 100% }
+
+@media only screen and (min-width: 600px) {
+    /* For user tablet */
+    .col-s-1 {
+        width: 8.33%;
+    }
+    .col-s-2 {
+        width: 16.66%;
+    }
+    .col-s-3 {
+        width: 25%;
+    }
+    .col-s-4 {
+        width: 33.33%;
+    }
+    .col-s-5 {
+        width: 41.66%;
+    }
+    .col-s-6 {
+        width: 50%;
+    }
+    .col-s-7 {
+        width: 58.33%;
+    }
+    .col-s-8 {
+        width: 66.66%;
+    }
+    .col-s-9 {
+        width: 75%;
+    }
+    .col-s-10 {
+        width: 83.33%;
+    }
+    .col-s-11 {
+        width: 91.66%;
+    }
+    .col-s-12 {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    /* For user laptop/desktop */
+    .col-1 {
+        width: 8.33%;
+    }
+    .col-2 {
+        width: 16.66%;
+    }
+    .col-3 {
+        width: 25%;
+    }
+    .col-4 {
+        width: 33.33%;
+    }
+    .col-5 {
+        width: 41.66%;
+    }
+    .col-6 {
+        width: 50%;
+    }
+    .col-7 {
+        width: 58.33%;
+    }
+    .col-8 {
+        width: 66.66%;
+    }
+    .col-9 {
+        width: 75%;
+    }
+    .col-10 {
+        width: 83.33%;
+    }
+    .col-11 {
+        width: 91.66%;
+    }
+    .col-12 {
+        width: 100%;
+    }
+}
+
+
+/* tutup responsif style */
+
+
+/* shortcut */
+
+.clearfix { clear: both }
+.border-r-small { border-radius: 13px }
+.border-r-medium { border-radius: 24px }
+
+.w1k { width: 1000px }
+.max-w-small { max-width: 95% }
+.mrl-auto { margin: 0 auto }
+.pdding-small { padding: 10px }
+
+
+/* tutup shortcut

@@ -1,0 +1,78 @@
+{{> header}}
+
+<div class="container">
+    {{> sidebar}}
+  
+    <div class="in-container__right">
+      <div class="heading-container d-flex-responsif">
+        <form action="/movies/search" class="search-input" method="GET">
+          <i class="fas fa-search"></i>
+          <input type="search" name="searchInput" placeholder="Type to search">
+        </form>
+        <div class="account-detail d-flex align-center">
+          {{#if isLogin}}
+            <i class="fas fa-bell"></i>
+            <i class="fas fa-message"></i>
+            <div class="account d-flex align-center">
+              <img class="profile_account" src="/static/img/profile1.jpg" alt="profile account">
+              <div class="about_account">
+                <p class="title_of_about-account">{{user.name}}</p>
+                <p class="subtitle">Dancer</p>
+              </div>
+            </div>
+          {{else}}
+            <a class="btn btn-primary" href="/register">Sign up</a>
+          {{/if}}
+        </div>
+      </div>
+      <div class="main">
+  
+        <div class="head-of-main">
+          <p>Total price: {{finalPrice}}</p>
+          <p>Amount: {{amount}}</p>
+          <br>
+          <div class="wrapper-card-ticket">
+            {{#each infoTicket}}
+              <div class="card-ticket">
+                <h3 class="text-center">{{this.movie_name}}</h3>
+                <br>
+                <p><strong>Description</strong></p>
+                <ul>
+                  <li>{{this.movie_hour}}</li>
+                  <li>{{this.date_show}}</li>
+                  <li class="mt-l">Price: ${{this.price}}</li>
+                </ul>
+              </div>
+            {{/each}}
+            <br>
+          </div>
+          <form class="form-card" action="/movies/cart" method="POST">
+            <label>
+              <input type="text" name="userId" value="{{user.id}}" hidden>
+            </label>
+            <label>
+              <input type="text" class="amount-cart" name="amount" value="{{amount}}" hidden>
+            </label>
+            <br>
+            <label for="">
+              <input type="text" class="subtotal-cart" name="subTotal" value="{{finalPrice}}" hidden>
+            </label>
+            <br>
+            <button class="btn btn-submit" type="submit">Buy</button>
+          </form>
+        </div>
+  
+      </div>
+    </div>
+    <button class="btn-nav" onclick="openNav()">Nav</button>
+</div>
+
+<script src="/static/js/scMovie.js"></script>
+<script>
+  const parties = document.querySelector('.parties')
+  setTimeout(function() {
+    parties.classList.add('end-loader')
+    parties.classList.remove('have-loader')
+  }, 2000)
+</script>
+{{> footer}}

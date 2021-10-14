@@ -1,0 +1,90 @@
+{{> header}}
+
+{{#if message}}
+  <div class="alert alert-{{message.type}}" role="alert">
+    {{message.message}}
+  </div>
+{{/if}}
+
+<div class="container">
+    <div class="in-container__left dashboard text-center">
+        <div class="heading-container">
+        <div class="logo dashboard">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        </div>
+        <div class="main">
+            <div class="section-one__main">
+            <nav class="navbar">
+                <p class="title_navbar">Menu</p>
+                <ul>
+                    <li><a class="text-center" href="/"><i class="fas fa-home"></i></a></li>
+                    <li><a class="text-center" href="/dashboard"><i class="fas fa-columns"></i></a></li>
+                    <li class="active"><a class="text-center" href="/dashboard/movies"><i class="fas fa-th-list"></i></a></li>
+                    <li><a class="text-center" href="/movies/cart"><i class="fas fa-shopping-cart"></i></a></li>
+                </ul>
+                <br>
+                <p class="title_navbar">Social</p>
+                <ul>
+                    <li><a href="/friends"><i class="fas fa-user"></i></a></li>
+                    <li><a href="/parties"><i class="fas fa-gift"></i></a></li>
+                </ul>
+                <br>
+                <p class="title_navbar">General</p>
+                <ul>
+                    <li><a href="/movies/setting"><i class="fas fa-cog"></i></a></li>
+                    <li><a href="/logout"><i class="fas fa-sign-out-alt"></i></a></li>
+                </ul>
+            </nav>
+            </div>
+        </div>
+    </div>
+    <div class="in-container__right dashboard">
+        <form action="/dashboard/movies/update" method="POST" enctype="multipart/form-data">
+            <div class="section-drop-file">    
+                <label class="drop-your-file">
+                    Drop your file
+                    <input type="file" class="inputFile" id="file" aria-label="file upload" name="image" onchange="handlePreview()">
+                </label>
+            </div>
+            <div class="section-add-movie">
+                <div id="preview-thumbnail"><img src="/uploads/{{movies.0.image}}" style="width: 250px;" alt=""></div>
+                <div class="inner-section-add-movie">
+                    <input type="text" name="movieId" value="{{movies.0.id}}" hidden>
+                    <label>
+                        {{!-- <input type="text" name="genre" placeholder="Genre.."> --}}
+                        <select name="genre" class="genreMovie">
+                            <option value="1">Action</option>
+                            <option value="2">Drama</option>
+                            <option value="3">Comedy</option>
+                            <option value="4">Horror</option>
+                        </select>
+                    </label>
+                    <label>
+                        <input type="text" name="movieName" value="{{movies.0.movie_name}}" placeholder="Movie name..">
+                    </label>
+                    <label>
+                        <input type="text" name="movieHour" value="{{movies.0.movie_hour}}" placeholder="Movie hour..">
+                    </label>
+                    <label>
+                        <textarea name="content" cols="30" rows="10" placeholder="Movie content..">{{movies.0.content}}</textarea>
+                    </label>
+                    <button class="btn-primary p-responsif-s mt-l" type="submit">Submit</button>
+                </div>
+            </div>
+            <br>
+        </form>
+    </div>
+</div>
+
+{{> footer}}
+
+<script>
+    function handlePreview() {
+        const previewElement = document.getElementById("preview-thumbnail")
+        const value = URL.createObjectURL(event.target.files[0])
+        previewElement.innerHTML = `<img src=${value} style="width: 250px;" class="mb-3">`
+    }
+</script>

@@ -1,0 +1,102 @@
+/* button */
+.btn-update {
+    background: var(--btn-success);
+    border-radius: 5px;
+    box-shadow:  10px 10px 15px #d4d5d9,
+             -10px -10px 15px #eaeaee;
+}
+
+.btn-update a { color: var(--bg-theme) }
+
+.btn-delete {
+    color: #f9faff;
+    background: var(--primary-color);
+    border-radius: 5px;
+    box-shadow:  10px 10px 15px #d4d5d9,
+             -10px -10px 15px #eaeaee;
+}
+
+.btn-delete a { color: var(--bg-theme) }
+/* closed */
+
+.in-container__left.dashboard {
+    background-color: var(--bg-sidebar);
+    width: var(--size-width-left-dashboard);
+}
+
+.logo.dashboard {
+    display: flex;
+    justify-content: center;
+}
+
+.logo.dashboard span {
+    display: block;
+    content: '';
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background-color: var(--primary-color);
+    border-radius: var(--border-circle);
+}
+
+.logo.dashboard span:nth-child(2) {
+    margin: 0 5px;
+    background-color: #d5d834;
+}
+
+.logo.dashboard span:last-child { background-color: #34d85d }
+
+.in-container__right > * {
+    padding: 20px;
+}
+
+.hero-image_dashboard {
+    margin: 10px 0;
+}
+
+.box-hero.dashboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 200px;
+    max-width: 90%;
+    min-height: 150px;
+    padding: 20px;
+    background-color: var(--bg-theme);
+    border-radius: var(--border-smooth);
+    box-shadow: var(--box-shadow-theme);
+}
+
+.box-hero.dashboard i {
+    font-size: 40px;
+}
+
+.box-hero.dashboard .about {
+    margin: 5px 0;
+}
+
+.in-container__right.dashboard {
+    padding-left: var(--size-width-left-dashboard);
+}
+
+@media (max-width: 800px) {
+    .in-container__left {
+        position: fixed;
+        top: 0;
+        left: calc(var(--size-width-left) - (var(--size-width-left) * 2));
+    }
+
+    .in-container__left.active {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    .in-container__right { padding-left: 0 }
+    .btn-nav { 
+        display: block;
+    }
+    .in-container__right.dashboard {
+        padding-left: calc(var(--size-width-left-dashboard) - (var(--size-width-left) * 2));
+    }
+}

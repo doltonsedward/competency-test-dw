@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'Mont-light';
+    src: url('../font/Mont-ExtraLight.otf');
+}
+
+@font-face {
+    font-family: 'Mont-bold';
+    src: url('../font/Mont-Heavy.otf');
+}
+
+body {
+    font-family: 'Mont-bold', Arial, Helvetica, sans-serif;
+}
+
+.container {
+    padding: 20px 50px;
+}

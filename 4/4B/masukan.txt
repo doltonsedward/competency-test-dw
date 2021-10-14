@@ -1,0 +1,3 @@
+- akses untuk admin tidak perlu di taruh ke sisi client
+- validasi login jika email atau password tidak ada
+- masing2 movie berikan tombol untuk payment
