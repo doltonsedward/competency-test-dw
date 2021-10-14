@@ -16,22 +16,18 @@
             </select>
             <button type="submit">search by</button>
         </form>
-        
-        <div class="section-btn">
-            <button class="btn btn-update" onclick="toggleUpdate()">Toggle Update</button>
-            <button class="btn btn-delete" onclick="toggleDelete()">Toggle Delete</button>
-        </div>
         <div class="wrapper_provinsi">
-            {{#each provinces}}
+            {{#each islandResult}}
                 <div class="card-item_provinsi text-center">
                     <div class="image-section">
                         <img src="/uploads/{{this.photo}}" width="100px" alt="">
                         <p class="title">{{this.nama}}</p>
                     </div>
-                    <button class="btn btn-success"><a class="text-center" href="/pulau/province/detail/{{this.id}}">Detail</a></button>
+                    <button class="btn btn-success"><a class="text-center" href="/pulau/{{option}}/detail/{{this.id}}">Detail</a></button>
                 </div>
             {{/each}}
         </div>
+        <p>{{option}}</p>
     </div>
 </div>
 

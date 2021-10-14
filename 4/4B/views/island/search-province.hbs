@@ -16,11 +16,6 @@
             </select>
             <button type="submit">search by</button>
         </form>
-        
-        <div class="section-btn">
-            <button class="btn btn-update" onclick="toggleUpdate()">Toggle Update</button>
-            <button class="btn btn-delete" onclick="toggleDelete()">Toggle Delete</button>
-        </div>
         <div class="wrapper_provinsi">
             {{#each provinces}}
                 <div class="card-item_provinsi text-center">
@@ -32,6 +27,7 @@
                 </div>
             {{/each}}
         </div>
+        <p>{{option}}</p>
     </div>
 </div>
 

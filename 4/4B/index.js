@@ -18,6 +18,8 @@ app.set("views", path.join(__dirname, "views"))
 
 app.set("view engine", "hbs")
 
+const islandRoute = require('./routes/island') 
+
 hbs.registerPartials(path.join(__dirname, '/views/partials'))
 
 // user session
@@ -54,17 +56,73 @@ app.get('/', (req, res) => {
       conn.query(query, (err, results) => {
         if (err) throw err
         
-        const movies = []
+        const provinces = []
         for (let result of results) {
-          movies.push({...result})
+          provinces.push({...result})
         }
         
-        res.render("index", {title: 'Home Page', isLogin: req.session.isLogin, user: req.session.user, movies})
+        res.render("index", {title: 'Catatan Penduduk', provinces})
       })
 
       conn.release()
     })
 })
+
+app.post('/search', (req, res) => {
+  const {option} = req.body
+  
+  if (option === 'provinsi') {
+    res.redirect('/search/province')
+    return
+  } else {
+    res.redirect('/search/district')
+    return
+  }
+})
+
+app.get('/search/province', (req, res) => {
+  const query = `SELECT * FROM provinsi_tb`
+
+  dbConnection.getConnection((err, conn) => {
+    if (err) throw err
+
+    conn.query(query, (err, results) => {
+      if (err) throw err
+      
+      const provinces = []
+      for (let result of results) {
+        provinces.push({...result})
+      }
+
+      res.render("island/search-province", {title: 'Catatan Penduduk', provinces})
+    })
+
+    conn.release()
+  })
+})
+
+app.get('/search/district', (req, res) => {
+  const query = `SELECT * FROM kabupaten_tb`
+
+  dbConnection.getConnection((err, conn) => {
+    if (err) throw err
+
+    conn.query(query, (err, results) => {
+      if (err) throw err
+      
+      const districts = []
+      for (let result of results) {
+        districts.push({...result})
+      }
+
+      res.render("island/search-district", {title: 'Catatan Penduduk', districts})
+    })
+
+    conn.release()
+  })
+})
+
+app.use('/pulau', islandRoute)
 
 const server = http.createServer(app)
 const port = 5000

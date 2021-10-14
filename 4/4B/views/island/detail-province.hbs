@@ -1,0 +1,37 @@
+{{> header}}
+
+<div class="container">
+    <div class="heading d-flex-responsif">
+        <h1>Provinsi & Kabupaten</h1>
+        <div class="crud-session">
+            <button>Add Provinsi</button>
+            <button>Add Kabupaten</button>
+        </div>
+    </div>
+    <div class="container">
+        <p></p>
+        <div class="wrapper_provinsi">
+            <table>
+                <tr>
+                    <th>Kabupaten</th>
+                    <th>Diresmikan</th>
+                    <th>Photo</th>
+                </tr>
+                {{#each island}}
+                    <tr>
+                        <td>{{this.nama}}</td>
+                        <td>{{this.diresmikan}}</td>
+                        <td><img src="/uploads/{{this.photo}}" alt=""></td>
+                    </tr>
+                {{/each}}
+            </table>
+        </div>
+        <br>
+        <div class="wrapper-btn">
+            <button><a href="/island/province/update/{{detailId}}">Update</a></button>
+            <button><a href="/island/province/delete/{{detailId}}">Delete</a></button>
+        </div>
+    </div>
+</div>
+
+{{> footer}}

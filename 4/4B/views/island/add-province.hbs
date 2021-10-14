@@ -1,0 +1,35 @@
+{{> header}}
+
+<div class="container">
+    <form action="add-province" method="POST" enctype="multipart/form-data">
+        <label>
+            <p>Nama provinsi</p>
+            <input type="text" name="name" placeholder="Nama provinsi..">
+        </label>
+        <label>
+            <p>Tanggal diresmikan</p>
+            <input type="text" name="inaugurated" placeholder="Diresmikan..">
+        </label>
+        <label>
+            <p>Foto</p>
+            <input type="file" aria-label="file upload" name="image" onchange="handlePreview()">
+        </label>
+        <label>
+            <p>Pulau</p>
+            <input type="text" name="island" placeholder="Pulau..">
+        </label>
+        <div id="preview-thumbnail"></div>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+
+<script>
+    function handlePreview() {
+        const previewElement = document.getElementById("preview-thumbnail")
+        const value = URL.createObjectURL(event.target.files[0])
+        previewElement.innerHTML = `<img src=${value} style="width: 250px;" class="mb-3">`
+    }
+</script>
+{{> footer}}
