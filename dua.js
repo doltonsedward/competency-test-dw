@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test 2</title>
-</head>
-<body>
-    
-<script>
-// SOLVED 
 function bubbleSort(arr) {
-    const result = []
     for (let i = 0; i < arr.length; i++) {
         for (let j = 0; j < (arr.length - i - 1); j++) {
             if (arr[j] > arr[j + 1]) {
@@ -27,6 +14,3 @@ function bubbleSort(arr) {
 
 const array = [20,12,35,11,17,9,58,23,69,21]
 bubbleSort(array)
-</script>
-</body>
-</html>
