@@ -3,7 +3,7 @@
 <div class="container">
     <form action="/pulau/district/update/{{id}}" method="POST" enctype="multipart/form-data">
         <label>
-            <p>Nama provinsi</p>
+            <p>Nama kabupaten</p>
             <input type="text" name="name" value="{{provinces.0.nama}}" placeholder="Nama provinsi..">
         </label>
         <label>
@@ -20,6 +20,8 @@
         <br>
         <button type="submit">Submit</button>
     </form>
+
+    <button class="btn btn-back"><a href="/">Back to home</a></button>
 </div>
 
 

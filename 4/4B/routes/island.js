@@ -1,8 +1,6 @@
 const dbConnection = require('../connection/db')
 const uploadFile = require("../middlewares/uploadFile")
 const router = require('express').Router()
-// const fs = require('fs')
-// const path = require('path')
 
 router.get('/province/detail/:id', function(req, res) {
     const {id} = req.params
